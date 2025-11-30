@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SLB Technical Quiz Board</title>
+<title>SLB Technical Quiz</title>
 <style>
   /* Background: blue fading to white left -> right */
   body {
@@ -106,7 +106,7 @@
 </style>
 </head>
 <body>
-<header>SLB Technical Quiz</header>
+<header>Technical Quiz</header>
 <main>
   <!-- Start screen -->
   <div class="card" id="screenHome">
@@ -170,35 +170,29 @@
     <p id="feedback"></p>
 
     <!-- celebration layer -->
-    <div id="celebration" class="celebration hidden"></div>
+    <div id="celebration" class="celebration hidden"></div>
   </div>
 </main>
 <footer>© 2025 SLB Technical Quiz</footer>
 
 <script>
-// --- Data ---
 
 const ALL_QUESTIONS = [
-  { prompt: 'Unscramble: TCSIRPY', answer: 'CRYPTO', tag: 'Backend' },
-  { prompt: 'Unscramble: DOCLOU', answer: 'CLOUD', tag: 'Cloud' },
-  { prompt: 'Unscramble: EBDNEAKC', answer: 'BACKEND', tag: 'Backend' },
-  { prompt: 'Unscramble: NTFREOND', answer: 'FRONTEND', tag: 'Frontend' },
-  { prompt: 'Unscramble: VDOESP', answer: 'DEVOPS', tag: 'DevOps & Infra' },
-  { prompt: 'Unscramble: NOITARIFUGNOC', answer: 'CONFIGURATION', tag: 'DevOps & Infra' },
-  { prompt: 'Unscramble: ATDONSCKI', answer: 'DOCKSTAIN', tag: 'All' },
-
+  // Frontend (12)
   { prompt: 'Unscramble: TMLH', answer: 'HTML', tag: 'Frontend' },
-    { prompt: 'Unscramble: SSC', answer: 'CSS', tag: 'Frontend' },
-    { prompt: 'Unscramble: TPIRCSAVAJ', answer: 'JAVASCRIPT', tag: 'Frontend' },
-    { prompt: 'Unscramble: RACTE', answer: 'REACT', tag: 'Frontend' },
-    { prompt: 'Unscramble: GULANAR', answer: 'ANGULAR', tag: 'Frontend' },
-    { prompt: 'Unscramble: TNEPMOCN', answer: 'COMPONENT', tag: 'Frontend' },
-    { prompt: 'Unscramble: VESRICE', answer: 'SERVICE', tag: 'Frontend' },
-    { prompt: 'Unscramble: ERTCIDIVE', answer: 'DIRECTIVE', tag: 'Frontend' },
-    { prompt: 'Unscramble: TAEHS', answer: 'STATE', tag: 'Frontend' },
-    { prompt: 'Unscramble: KSOOH', answer: 'HOOKS', tag: 'Frontend' },
+  { prompt: 'Unscramble: SSC', answer: 'CSS', tag: 'Frontend' },
+  { prompt: 'Unscramble: RACTE', answer: 'REACT', tag: 'Frontend' },
+  { prompt: 'Unscramble: GULANAR', answer: 'ANGULAR', tag: 'Frontend' },
+  { prompt: 'Unscramble: TNEPMOCN', answer: 'COMPONENT', tag: 'Frontend' },
+  { prompt: 'Unscramble: VESRICE', answer: 'SERVICE', tag: 'Frontend' },
+  { prompt: 'Unscramble: ERTCIDIVE', answer: 'DIRECTIVE', tag: 'Frontend' },
+  { prompt: 'Unscramble: TAEHS', answer: 'STATE', tag: 'Frontend' },
+  { prompt: 'Unscramble: KSOOH', answer: 'HOOKS', tag: 'Frontend' },
+  { prompt: 'Unscramble: VUEJS', answer: 'VUEJS', tag: 'Frontend' },
+  { prompt: 'Unscramble: DOM', answer: 'DOM', tag: 'Frontend' },
+  { prompt: 'Unscramble: TSPYTEIRC', answer: 'TYPESCRIPT', tag: 'Frontend' },
 
-
+  // Testing (12)
   { prompt: 'Unscramble: UNIT', answer: 'UNIT', tag: 'Testing' },
   { prompt: 'Unscramble: JEST', answer: 'JEST', tag: 'Testing' },
   { prompt: 'Unscramble: MOCHA', answer: 'MOCHA', tag: 'Testing' },
@@ -209,7 +203,10 @@ const ALL_QUESTIONS = [
   { prompt: 'Unscramble: COVERAGE', answer: 'COVERAGE', tag: 'Testing' },
   { prompt: 'Unscramble: SNAPSHOT', answer: 'SNAPSHOT', tag: 'Testing' },
   { prompt: 'Unscramble: AUTOMATION', answer: 'AUTOMATION', tag: 'Testing' },
+  { prompt: 'Unscramble: KARMA', answer: 'KARMA', tag: 'Testing' },
+  { prompt: 'Unscramble: TDD', answer: 'TDD', tag: 'Testing' },
 
+  // Databases (12) — removed ROW to keep 12 total
   { prompt: 'Unscramble: SQL', answer: 'SQL', tag: 'Databases' },
   { prompt: 'Unscramble: MYSQL', answer: 'MYSQL', tag: 'Databases' },
   { prompt: 'Unscramble: POSTGRES', answer: 'POSTGRES', tag: 'Databases' },
@@ -218,9 +215,12 @@ const ALL_QUESTIONS = [
   { prompt: 'Unscramble: QUERY', answer: 'QUERY', tag: 'Databases' },
   { prompt: 'Unscramble: TABLE', answer: 'TABLE', tag: 'Databases' },
   { prompt: 'Unscramble: COLUMN', answer: 'COLUMN', tag: 'Databases' },
-  { prompt: 'Unscramble: ROW', answer: 'ROW', tag: 'Databases' },
   { prompt: 'Unscramble: SCHEMA', answer: 'SCHEMA', tag: 'Databases' },
+  { prompt: 'Unscramble: NORMALIZE', answer: 'NORMALIZE', tag: 'Databases' },
+  { prompt: 'Unscramble: TRANSACTION', answer: 'TRANSACTION', tag: 'Databases' },
+  { prompt: 'Unscramble: PRIMARYKEY', answer: 'PRIMARYKEY', tag: 'Databases' },
 
+  // Backend (12)
   { prompt: 'Unscramble: NODEJS', answer: 'NODEJS', tag: 'Backend' },
   { prompt: 'Unscramble: EXPRESS', answer: 'EXPRESS', tag: 'Backend' },
   { prompt: 'Unscramble: DJANGO', answer: 'DJANGO', tag: 'Backend' },
@@ -231,8 +231,52 @@ const ALL_QUESTIONS = [
   { prompt: 'Unscramble: SESSION', answer: 'SESSION', tag: 'Backend' },
   { prompt: 'Unscramble: TOKEN', answer: 'TOKEN', tag: 'Backend' },
   { prompt: 'Unscramble: CACHE', answer: 'CACHE', tag: 'Backend' },
+  { prompt: 'Unscramble: FLASK', answer: 'FLASK', tag: 'Backend' },
+  { prompt: 'Unscramble: GRAPHQL', answer: 'GRAPHQL', tag: 'Backend' },
 
-]
+  // DevOps & Infra (12)
+  { prompt: 'Unscramble: DOCKER', answer: 'DOCKER', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: KUBERNETES', answer: 'KUBERNETES', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: PIPELINE', answer: 'PIPELINE', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: CI/CD', answer: 'CICD', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: ANSIBLE', answer: 'ANSIBLE', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: TERRAFORM', answer: 'TERRAFORM', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: PROMETHEUS', answer: 'PROMETHEUS', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: GRAFANA', answer: 'GRAFANA', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: JENKINS', answer: 'JENKINS', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: HELM', answer: 'HELM', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: ISTIO', answer: 'ISTIO', tag: 'DevOps & Infra' },
+  { prompt: 'Unscramble: GITOPS', answer: 'GITOPS', tag: 'DevOps & Infra' },
+
+  // Cloud (12)
+  { prompt: 'Unscramble: AWS', answer: 'AWS', tag: 'Cloud' },
+  { prompt: 'Unscramble: AZURE', answer: 'AZURE', tag: 'Cloud' },
+  { prompt: 'Unscramble: GOOGLECLOUD', answer: 'GOOGLECLOUD', tag: 'Cloud' },
+  { prompt: 'Unscramble: SERVERLESS', answer: 'SERVERLESS', tag: 'Cloud' },
+  { prompt: 'Unscramble: LAMBDA', answer: 'LAMBDA', tag: 'Cloud' },
+  { prompt: 'Unscramble: CONTAINER', answer: 'CONTAINER', tag: 'Cloud' },
+  { prompt: 'Unscramble: VIRTUALMACHINE', answer: 'VIRTUALMACHINE', tag: 'Cloud' },
+  { prompt: 'Unscramble: STORAGE', answer: 'STORAGE', tag: 'Cloud' },
+  { prompt: 'Unscramble: NETWORKING', answer: 'NETWORKING', tag: 'Cloud' },
+  { prompt: 'Unscramble: LOADBALANCER', answer: 'LOADBALANCER', tag: 'Cloud' },
+  { prompt: 'Unscramble: AUTOSCALING', answer: 'AUTOSCALING', tag: 'Cloud' },
+  { prompt: 'Unscramble: IAM', answer: 'IAM', tag: 'Cloud' },
+
+  // All (12)
+  { prompt: 'Unscramble: ALGORITHM', answer: 'ALGORITHM', tag: 'All' },
+  { prompt: 'Unscramble: FUNCTION', answer: 'FUNCTION', tag: 'All' },
+  { prompt: 'Unscramble: VARIABLE', answer: 'VARIABLE', tag: 'All' },
+  { prompt: 'Unscramble: OBJECT', answer: 'OBJECT', tag: 'All' },
+  { prompt: 'Unscramble: ARRAY', answer: 'ARRAY', tag: 'All' },
+  { prompt: 'Unscramble: LOOP', answer: 'LOOP', tag: 'All' },
+  { prompt: 'Unscramble: DEBUG', answer: 'DEBUG', tag: 'All' },
+  { prompt: 'Unscramble: COMPILE', answer: 'COMPILE', tag: 'All' },
+  { prompt: 'Unscramble: PACKAGE', answer: 'PACKAGE', tag: 'All' },
+  { prompt: 'Unscramble: LIBRARY', answer: 'LIBRARY', tag: 'All' },
+  { prompt: 'Unscramble: RUNTIME', answer: 'RUNTIME', tag: 'All' },
+  { prompt: 'Unscramble: FRAMEWORK', answer: 'FRAMEWORK', tag: 'All' },
+];
+
 
 // --- State ---
 let questions = [];

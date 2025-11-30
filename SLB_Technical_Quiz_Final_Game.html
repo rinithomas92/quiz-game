@@ -177,70 +177,62 @@
 
 <script>
 // --- Data ---
+
 const ALL_QUESTIONS = [
-  
- { "prompt": "Unscramble: NODEJS", "answer": "NODEJS", "tag": "Backend" },
-  { "prompt": "Unscramble: EXPRESS", "answer": "EXPRESS", "tag": "Backend" },
-  { "prompt": "Unscramble: DJANGO", "answer": "DJANGO", "tag": "Backend" },
-  { "prompt": "Unscramble: SPRING", "answer": "SPRING", "tag": "Backend" },
-  { "prompt": "Unscramble: API", "answer": "API", "tag": "Backend" },
-  { "prompt": "Unscramble: ROUTER", "answer": "ROUTER", "tag": "Backend" },
-  { "prompt": "Unscramble: MIDDLEWARE", "answer": "MIDDLEWARE", "tag": "Backend" },
-  { "prompt": "Unscramble: SESSION", "answer": "SESSION", "tag": "Backend" },
-  { "prompt": "Unscramble: TOKEN", "answer": "TOKEN", "tag": "Backend" },
-  { "prompt": "Unscramble: CACHE", "answer": "CACHE", "tag": "Backend" },
-  { prompt: 'Unscramble: PTAJAVSCRIP', answer: 'JAVASCRIPT', tag: 'Frontend' },
-  { "prompt": "Unscramble: TMLH", "answer": "HTML", "tag": "Frontend" },
-  { "prompt": "Unscramble: SSC", "answer": "CSS", "tag": "Frontend" },
-  { "prompt": "Unscramble: TPIRCSAVAJ", "answer": "JAVASCRIPT", "tag": "Frontend" },
-  { "prompt": "Unscramble: RACTE", "answer": "REACT", "tag": "Frontend" },
-  { "prompt": "Unscramble: GULANAR", "answer": "ANGULAR", "tag": "Frontend" },
-  { "prompt": "Unscramble: TNEPMOCN", "answer": "COMPONENT", "tag": "Frontend" },
-  { "prompt": "Unscramble: VESRICE", "answer": "SERVICE", "tag": "Frontend" },
-  { "prompt": "Unscramble: ERTCIDIVE", "answer": "DIRECTIVE", "tag": "Frontend" },
-  { "prompt": "Unscramble: TAEHS", "answer": "STATE", "tag": "Frontend" },
-  { "prompt": "Unscramble: KSOOH", "answer": "HOOKS", "tag": "Frontend" }
   { prompt: 'Unscramble: TCSIRPY', answer: 'CRYPTO', tag: 'Backend' },
   { prompt: 'Unscramble: DOCLOU', answer: 'CLOUD', tag: 'Cloud' },
-  { "prompt": "Unscramble: DOCLOU", "answer": "CLOUD", "tag": "Cloud" },
-  { "prompt": "Unscramble: AWS", "answer": "AWS", "tag": "Cloud" },
-  { "prompt": "Unscramble: ZUREA", "answer": "AZURE", "tag": "Cloud" },
-  { "prompt": "Unscramble: OOGLEG", "answer": "GOOGLE", "tag": "Cloud" },
-  { "prompt": "Unscramble: UBKERNETSO", "answer": "KUBERNETES", "tag": "Cloud" },
-  { "prompt": "Unscramble: DOCKER", "answer": "DOCKER", "tag": "Cloud" },
-  { "prompt": "Unscramble: ERVICES", "answer": "SERVICES", "tag": "Cloud" },
-  { "prompt": "Unscramble: LAMBDA", "answer": "LAMBDA", "tag": "Cloud" },
-  { "prompt": "Unscramble: API", "answer": "API", "tag": "Cloud" },
-  { "prompt": "Unscramble: STORAGE", "answer": "STORAGE", "tag": "Cloud" },
-  { prompt: 'Unscramble: ABTEDSAA', answer: 'DATABASE', tag: 'Databases' },
-  { "prompt": "Unscramble: SQL", "answer": "SQL", "tag": "Databases" },
-  { "prompt": "Unscramble: MYSQL", "answer": "MYSQL", "tag": "Databases" },
-  { "prompt": "Unscramble: POSTGRES", "answer": "POSTGRES", "tag": "Databases" },
-  { "prompt": "Unscramble: MONGODB", "answer": "MONGODB", "tag": "Databases" },
-  { "prompt": "Unscramble: INDEX", "answer": "INDEX", "tag": "Databases" },
-  { "prompt": "Unscramble: QUERY", "answer": "QUERY", "tag": "Databases" },
-  { "prompt": "Unscramble: TABLE", "answer": "TABLE", "tag": "Databases" },
-  { "prompt": "Unscramble: COLUMN", "answer": "COLUMN", "tag": "Databases" },
-  { "prompt": "Unscramble: ROW", "answer": "ROW", "tag": "Databases" },
-  { "prompt": "Unscramble: SCHEMA", "answer": "SCHEMA", "tag": "Databases" },
-  { prompt: 'Unscramble: XTSEGNIT', answer: 'TESTING', tag: 'Testing' },
   { prompt: 'Unscramble: EBDNEAKC', answer: 'BACKEND', tag: 'Backend' },
   { prompt: 'Unscramble: NTFREOND', answer: 'FRONTEND', tag: 'Frontend' },
   { prompt: 'Unscramble: VDOESP', answer: 'DEVOPS', tag: 'DevOps & Infra' },
   { prompt: 'Unscramble: NOITARIFUGNOC', answer: 'CONFIGURATION', tag: 'DevOps & Infra' },
   { prompt: 'Unscramble: ATDONSCKI', answer: 'DOCKSTAIN', tag: 'All' },
-  {"prompt": "Unscramble: VDOESP", "answer": "DEVOPS", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: NOITARIFUGNOC", "answer": "CONFIGURATION", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: DOCKER", "answer": "DOCKER", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: UBKERNETSO", "answer": "KUBERNETES", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: ELIBISNA", "answer": "ANSIBLE", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: NIKJES", "answer": "JENKINS", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: MRROFETAR", "answer": "TERRAFORM", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: NOITAZILAUTOM", "answer": "AUTOMATION", "tag": "DevOps & Infra" },
-  { "prompt": "Unscramble: GNITOMINOR", "answer": "MONITORING", "tag": "DevOps & Infra" },
-  { "prompt"
 
-];
+  { prompt: 'Unscramble: TMLH', answer: 'HTML', tag: 'Frontend' },
+    { prompt: 'Unscramble: SSC', answer: 'CSS', tag: 'Frontend' },
+    { prompt: 'Unscramble: TPIRCSAVAJ', answer: 'JAVASCRIPT', tag: 'Frontend' },
+    { prompt: 'Unscramble: RACTE', answer: 'REACT', tag: 'Frontend' },
+    { prompt: 'Unscramble: GULANAR', answer: 'ANGULAR', tag: 'Frontend' },
+    { prompt: 'Unscramble: TNEPMOCN', answer: 'COMPONENT', tag: 'Frontend' },
+    { prompt: 'Unscramble: VESRICE', answer: 'SERVICE', tag: 'Frontend' },
+    { prompt: 'Unscramble: ERTCIDIVE', answer: 'DIRECTIVE', tag: 'Frontend' },
+    { prompt: 'Unscramble: TAEHS', answer: 'STATE', tag: 'Frontend' },
+    { prompt: 'Unscramble: KSOOH', answer: 'HOOKS', tag: 'Frontend' },
+
+
+  { prompt: 'Unscramble: UNIT', answer: 'UNIT', tag: 'Testing' },
+  { prompt: 'Unscramble: JEST', answer: 'JEST', tag: 'Testing' },
+  { prompt: 'Unscramble: MOCHA', answer: 'MOCHA', tag: 'Testing' },
+  { prompt: 'Unscramble: CYPRESS', answer: 'CYPRESS', tag: 'Testing' },
+  { prompt: 'Unscramble: SELENIUM', answer: 'SELENIUM', tag: 'Testing' },
+  { prompt: 'Unscramble: ASSERT', answer: 'ASSERT', tag: 'Testing' },
+  { prompt: 'Unscramble: MOCK', answer: 'MOCK', tag: 'Testing' },
+  { prompt: 'Unscramble: COVERAGE', answer: 'COVERAGE', tag: 'Testing' },
+  { prompt: 'Unscramble: SNAPSHOT', answer: 'SNAPSHOT', tag: 'Testing' },
+  { prompt: 'Unscramble: AUTOMATION', answer: 'AUTOMATION', tag: 'Testing' },
+
+  { prompt: 'Unscramble: SQL', answer: 'SQL', tag: 'Databases' },
+  { prompt: 'Unscramble: MYSQL', answer: 'MYSQL', tag: 'Databases' },
+  { prompt: 'Unscramble: POSTGRES', answer: 'POSTGRES', tag: 'Databases' },
+  { prompt: 'Unscramble: MONGODB', answer: 'MONGODB', tag: 'Databases' },
+  { prompt: 'Unscramble: INDEX', answer: 'INDEX', tag: 'Databases' },
+  { prompt: 'Unscramble: QUERY', answer: 'QUERY', tag: 'Databases' },
+  { prompt: 'Unscramble: TABLE', answer: 'TABLE', tag: 'Databases' },
+  { prompt: 'Unscramble: COLUMN', answer: 'COLUMN', tag: 'Databases' },
+  { prompt: 'Unscramble: ROW', answer: 'ROW', tag: 'Databases' },
+  { prompt: 'Unscramble: SCHEMA', answer: 'SCHEMA', tag: 'Databases' },
+
+  { prompt: 'Unscramble: NODEJS', answer: 'NODEJS', tag: 'Backend' },
+  { prompt: 'Unscramble: EXPRESS', answer: 'EXPRESS', tag: 'Backend' },
+  { prompt: 'Unscramble: DJANGO', answer: 'DJANGO', tag: 'Backend' },
+  { prompt: 'Unscramble: SPRING', answer: 'SPRING', tag: 'Backend' },
+  { prompt: 'Unscramble: API', answer: 'API', tag: 'Backend' },
+  { prompt: 'Unscramble: ROUTER', answer: 'ROUTER', tag: 'Backend' },
+  { prompt: 'Unscramble: MIDDLEWARE', answer: 'MIDDLEWARE', tag: 'Backend' },
+  { prompt: 'Unscramble: SESSION', answer: 'SESSION', tag: 'Backend' },
+  { prompt: 'Unscramble: TOKEN', answer: 'TOKEN', tag: 'Backend' },
+  { prompt: 'Unscramble: CACHE', answer: 'CACHE', tag: 'Backend' },
+
+]
 
 // --- State ---
 let questions = [];
@@ -292,7 +284,6 @@ function startTimer(){
 
 function startGame(){
   const topic = topicEl.value;
-  console.log("the topic is"+topic)
   const pool = (topic === 'All') ? ALL_QUESTIONS.slice() : ALL_QUESTIONS.filter(q => q.tag === topic);
   questions = shuffle(pool).slice(0, 10);
   if (questions.length < 10) {
